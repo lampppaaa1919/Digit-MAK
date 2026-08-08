@@ -18,7 +18,6 @@ public static class ProductionValidation
             "ADMIN_BOOTSTRAP_EMAIL",
             "ADMIN_BOOTSTRAP_PASSWORD",
             "UPLOADS_ROOT",
-            "CLAMAV_HOST",
         };
         var missing = required
             .Where(k =>
