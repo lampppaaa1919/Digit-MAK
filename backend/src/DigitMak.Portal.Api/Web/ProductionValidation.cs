@@ -10,10 +10,6 @@ public static class ProductionValidation
         {
             "ConnectionStrings:Portal",
             "Jwt:Key",
-            "BREVO_SMTP_HOST",
-            "BREVO_SMTP_USERNAME",
-            "BREVO_SMTP_PASSWORD",
-            "BREVO_FROM_EMAIL",
             "APP_PUBLIC_URL",
             "ADMIN_BOOTSTRAP_EMAIL",
             "ADMIN_BOOTSTRAP_PASSWORD",
