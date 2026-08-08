@@ -30,7 +30,7 @@ builder.Services.AddCors(options =>
                 "http://127.0.0.1:5173",
                 "http://localhost:3000",
                 "http://127.0.0.1:3000",
-		"https://digit-c19g40o69-l-85da.vercel.app",
+		"https://digit-c19g40o69-l-85da.vercel.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
