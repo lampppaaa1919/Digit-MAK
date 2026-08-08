@@ -10,15 +10,11 @@ public static class DatabaseInitializer
     {
         using var scope = services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<PortalDbContext>();
-        if (
-            db.Database.ProviderName?.Contains("Npgsql", StringComparison.OrdinalIgnoreCase) == true
-        )
-            await db.Database.MigrateAsync();
-        else
-        {
-            await db.Database.EnsureCreatedAsync();
-            await EnsureLocalSchemaAsync(db);
-        }
+        await db.Database.EnsureCreatedAsync();
+	if (
+	    db.Database.ProviderName?.Contains("Npgsql", StringComparison.OrdinalIgnoreCase) != true
+	)
+    	await EnsureLocalSchemaAsync(db);
         var environment = scope.ServiceProvider.GetRequiredService<IHostEnvironment>();
         var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
         var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
