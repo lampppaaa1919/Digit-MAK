@@ -1,4 +1,4 @@
-const base = import.meta.env.VITE_API_URL ?? "";
+const base = import.meta.env.VITE_API_URL || "https://digit-mak-2.onrender.com";
 let accessToken: string | null = null;
 let refreshPromise: Promise<string | null> | null = null;
 export class ApiError extends Error {
