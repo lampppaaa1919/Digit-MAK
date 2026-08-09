@@ -269,6 +269,7 @@ public sealed class AuthController(
             var root = (config["APP_PUBLIC_URL"] ?? "http://localhost:5173").TrimEnd('/');
             var link =
                 $"{root}/reset-password?email={Uri.EscapeDataString(request.Email)}&token={Uri.EscapeDataString(token)}";
+		Console.WriteLine($"PASSWORD RESET LINK: {link}");
             db.Notifications.Add(
                 new Notification
                 {
