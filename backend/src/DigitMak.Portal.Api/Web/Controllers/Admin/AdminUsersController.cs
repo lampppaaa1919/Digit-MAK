@@ -96,6 +96,11 @@ public sealed class AdminUsersController(PortalDbContext db, UserManager<AppUser
         if (!UserStatuses.IsValid(nextStatus))
             return Results.BadRequest(new { message = "Unsupported user status." });
         user.Status = nextStatus;
+	if (nextStatus == UserStatuses.Active)
+	{
+    		user.EmailConfirmed = true;
+    	user.EmailVerifiedAt ??= DateTimeOffset.UtcNow;
+	}
         user.PreferredLanguage = request.PreferredLanguage;
         user.PhoneNumber = request.Phone;
         if (previousStatus == UserStatuses.Active && nextStatus != UserStatuses.Active)
