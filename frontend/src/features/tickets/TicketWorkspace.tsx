@@ -61,7 +61,7 @@ export function TicketWorkspace({
       .then(setAttachments)
       .catch((e) => setError(e.message));
     const connection = new HubConnectionBuilder()
-      .withUrl(`${import.meta.env.VITE_API_URL ?? ""}/hubs/tickets`, {
+      .withUrl(`/hubs/tickets`, {
         accessTokenFactory: () => getAccessToken() ?? "",
       })
       .withAutomaticReconnect()

@@ -719,7 +719,7 @@ export function StaffTicketDetail({
       .then(setAttachments)
       .catch((reason) => setError(reason.message));
     const connection = new HubConnectionBuilder()
-      .withUrl(`${import.meta.env.VITE_API_URL ?? ""}/hubs/tickets`, {
+      .withUrl(`/hubs/tickets`, {
         accessTokenFactory: () => getAccessToken() ?? "",
       })
       .withAutomaticReconnect()
