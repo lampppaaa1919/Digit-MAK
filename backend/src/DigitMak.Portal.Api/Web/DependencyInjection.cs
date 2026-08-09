@@ -54,11 +54,12 @@ public static class DependencyInjection
         services.AddScoped<IPublicContentService, PublicContentService>();
         services
             .AddIdentityCore<AppUser>(o =>
-            {
-                o.User.RequireUniqueEmail = true;
-                o.Password.RequiredLength = 10;
-                o.SignIn.RequireConfirmedEmail = true;
-            })
+		{
+    		o.User.RequireUniqueEmail = true;
+    		o.Password.RequiredLength = 10;
+    		o.SignIn.RequireConfirmedEmail = true;
+    		o.Lockout.MaxFailedAccessAttempts = int.MaxValue;
+		})
             .AddRoles<IdentityRole<Guid>>()
             .AddEntityFrameworkStores<PortalDbContext>()
             .AddSignInManager()
